@@ -6,14 +6,14 @@ Implement VerdictLog end-to-end on the existing Devvit Web scaffold. The plan fo
 
 ## Tasks
 
-- [ ] 1. Shared types and validation constants
-  - [ ] 1.1 Create `src/shared/types.ts` with `Severity`, `ContentType`, `Verdict`, `Rule`, and `RetentionSettings` type aliases
+- [x] 1. Shared types and validation constants
+  - [x] 1.1 Create `src/shared/types.ts` with `Severity`, `ContentType`, `Verdict`, `Rule`, and `RetentionSettings` type aliases
     - Define all fields exactly as specified in the design data models section
     - Use type aliases, not interfaces
     - Export all types as named exports
     - _Requirements: 1.7, 4.3, 5.2_
 
-  - [ ] 1.2 Create `src/shared/validation.ts` with shared validation constants and pure validation functions
+  - [x] 1.2 Create `src/shared/validation.ts` with shared validation constants and pure validation functions
     - Export `MAX_REASON_LEN = 500`, `MAX_RULE_NAME_LEN = 100`, `MAX_RULE_DESC_LEN = 500`, `MIN_RETENTION_DAYS = 1`, `MAX_RETENTION_DAYS = 3650`, `MAX_RULES_PER_SUB = 50`, `DEFAULT_RETENTION_DAYS = 90`
     - Export `validateReason(s: string): { ok: true } | { ok: false; message: string }` — rejects length > 500 or any `\n`/`\r`
     - Export `validateUsername(s: string): { ok: true } | { ok: false; message: string }` — rejects empty or chars outside `[A-Za-z0-9_-]`
