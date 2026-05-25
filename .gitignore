@@ -2,3 +2,11 @@ node_modules
 .DS_Store
 dist
 .env
+
+.env.*
+*.pem
+.credentials
+
+# Local only — omit from Devvit publish source zip
+.kiro/
+DEVPOST.md
