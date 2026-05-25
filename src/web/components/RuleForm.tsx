@@ -1,6 +1,16 @@
 import { useState, type FormEvent } from 'react';
 import type { Severity } from '../../shared/types';
 import { MAX_RULE_DESC_LEN, MAX_RULE_NAME_LEN } from '../../shared/validation';
+import {
+  fieldInlineStyle,
+  formInputClass,
+  formLabelClass,
+  formPanelClass,
+  formSelectClass,
+  formTextareaClass,
+  panelInlineStyle,
+  textareaInlineStyle,
+} from '../lib/formFieldClasses';
 
 type RuleFormValues = {
   name: string;
@@ -42,33 +52,38 @@ export function RuleForm({ onSubmit, initialValues, loading }: RuleFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+    <form onSubmit={handleSubmit} className={formPanelClass} style={panelInlineStyle}>
       <div>
-        <label className="mb-1 block text-sm font-medium">Name</label>
+        <label className={formLabelClass}>Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+          placeholder="e.g. Spam"
+          className={formInputClass}
+          style={fieldInlineStyle}
           disabled={loading}
         />
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium">Description</label>
+        <label className={formLabelClass}>Description</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+          placeholder="Optional — when moderators should use this rule"
+          className={formTextareaClass}
+          style={textareaInlineStyle}
           disabled={loading}
         />
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium">Default severity</label>
+        <label className={formLabelClass}>Default severity</label>
         <select
           value={defaultSeverity}
           onChange={(e) => setDefaultSeverity(e.target.value as Severity)}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+          className={formSelectClass}
+          style={fieldInlineStyle}
           disabled={loading}
         >
           <option value="low">Low</option>

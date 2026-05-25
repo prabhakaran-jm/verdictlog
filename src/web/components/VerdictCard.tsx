@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { showToast } from '@devvit/web/client';
 import type { Verdict } from '../../shared/types';
+import { formTextareaClass, textareaInlineStyle } from '../lib/formFieldClasses';
 import { formatAppealSummary } from '../lib/formatAppealSummary';
 import { formatTimestamp } from '../lib/formatTimestamp';
 
@@ -103,7 +104,8 @@ export function VerdictCard({ verdict, onDelete }: VerdictCardProps) {
           <textarea
             readOnly
             value={fallbackSummary}
-            className="h-40 w-full rounded border border-gray-300 bg-gray-50 p-2 font-mono text-xs dark:border-gray-600 dark:bg-gray-900"
+            className={`${formTextareaClass} h-40 font-mono text-xs`}
+            style={textareaInlineStyle}
           />
           <button
             type="button"

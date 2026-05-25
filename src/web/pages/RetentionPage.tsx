@@ -8,6 +8,7 @@ import {
   validateRetentionDays,
 } from '../../shared/validation';
 import { ErrorBanner } from '../components/ErrorBanner';
+import { fieldInlineStyle, formInputClass, formLabelClass } from '../lib/formFieldClasses';
 
 export function RetentionPage() {
   const [retentionDays, setRetentionDays] = useState(DEFAULT_RETENTION_DAYS);
@@ -66,7 +67,7 @@ export function RetentionPage() {
       ) : (
         <form onSubmit={(e) => void handleSubmit(e)} className="max-w-sm space-y-4">
           <div>
-            <label htmlFor="retentionDays" className="mb-1 block text-sm font-medium">
+            <label htmlFor="retentionDays" className={formLabelClass}>
               Retention period (days)
             </label>
             <input
@@ -76,7 +77,8 @@ export function RetentionPage() {
               max={MAX_RETENTION_DAYS}
               value={retentionDays}
               onChange={(e) => setRetentionDays(Number(e.target.value))}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+              className={formInputClass}
+              style={fieldInlineStyle}
               disabled={saving}
             />
             {fieldError ? (

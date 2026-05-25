@@ -3,6 +3,7 @@ import { showToast } from '@devvit/web/client';
 import type { Verdict } from '../../shared/types';
 import { trpc } from '../lib/trpc';
 import { formatCaseFileSummary } from '../lib/formatCaseFileSummary';
+import { formTextareaClass, textareaInlineStyle } from '../lib/formFieldClasses';
 import { SearchBar } from '../components/SearchBar';
 import { VerdictCard } from '../components/VerdictCard';
 import { EmptyState } from '../components/EmptyState';
@@ -81,7 +82,12 @@ export function CaseFilePage() {
           {fallbackSummary ? (
             <div className="mb-4">
               <p className="mb-1 text-sm text-red-600">Copy failed — select text below:</p>
-              <textarea readOnly value={fallbackSummary} className="h-48 w-full rounded border p-2 font-mono text-xs" />
+              <textarea
+                readOnly
+                value={fallbackSummary}
+                className={`${formTextareaClass} h-48 font-mono text-xs`}
+                style={textareaInlineStyle}
+              />
               <button type="button" onClick={() => setFallbackSummary(null)} className="mt-2 text-sm underline">
                 Dismiss
               </button>

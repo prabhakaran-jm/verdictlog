@@ -1,1 +1,89 @@
 @import 'tailwindcss';
+
+/* Reddit iframe resets form borders — use explicit styles, not utility-only borders. */
+.vl-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+input.vl-field,
+textarea.vl-field,
+select.vl-field {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 3px solid #1f2937 !important;
+  border-radius: 0.5rem;
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  box-shadow:
+    0 0 0 1px #1f2937,
+    inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+select.vl-field {
+  -webkit-appearance: menulist;
+  appearance: auto;
+}
+
+.vl-field {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.vl-field::placeholder {
+  color: #6b7280;
+}
+
+.vl-field:focus {
+  border-color: #d93900 !important;
+  outline: 2px solid rgba(217, 57, 0, 0.4) !important;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #d93900;
+}
+
+.vl-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  background-color: #f3f4f6 !important;
+}
+
+.vl-textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.vl-select {
+  appearance: auto;
+}
+
+.vl-panel {
+  padding: 1rem;
+  border: 2px solid #9ca3af !important;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  .vl-label {
+    color: #e5e7eb;
+  }
+
+  .vl-field {
+    border-color: #9ca3af !important;
+    background-color: #111827 !important;
+    color: #f9fafb !important;
+    box-shadow: inset 0 0 0 1px #6b7280;
+  }
+
+  .vl-panel {
+    border-color: #6b7280 !important;
+    background-color: #1f2937 !important;
+  }
+}

@@ -1,14 +1,45 @@
-/** Shared form control styles — Reddit iframe light mode needs strong borders and fill. */
+import type { CSSProperties } from 'react';
 
-export const formLabelClass =
-  'mb-1 block text-sm font-medium text-gray-800 dark:text-gray-200';
+/** Class hooks for layout; borders/fill use inline styles (Reddit iframe strips input borders). */
 
-export const formInputClass =
-  'w-full rounded-lg border-2 border-gray-400 bg-white px-3 py-2 text-gray-900 shadow-sm ring-1 ring-gray-200 placeholder:text-gray-500 focus:border-[#d93900] focus:outline-none focus:ring-2 focus:ring-[#d93900]/35 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:opacity-70 dark:border-gray-500 dark:bg-gray-900 dark:text-gray-100 dark:ring-gray-700 dark:placeholder:text-gray-400 dark:focus:border-orange-500 dark:focus:ring-orange-500/35';
+export const formLabelClass = 'vl-label';
 
-export const formSelectClass = `${formInputClass} appearance-auto`;
+export const formInputClass = 'vl-field';
 
-export const formTextareaClass = `${formInputClass} min-h-[5rem] resize-y`;
+export const formSelectClass = 'vl-field vl-select';
 
-export const formPanelClass =
-  'space-y-3 rounded-lg border-2 border-gray-300 bg-gray-50 p-4 shadow-sm dark:border-gray-600 dark:bg-gray-800/80';
+export const formTextareaClass = 'vl-field vl-textarea';
+
+export const formPanelClass = 'vl-panel space-y-3';
+
+/** Inline styles win over Tailwind preflight + parent resets in the Reddit webview. */
+export const fieldInlineStyle: CSSProperties = {
+  boxSizing: 'border-box',
+  width: '100%',
+  padding: '8px 12px',
+  borderWidth: 2,
+  borderStyle: 'solid',
+  borderColor: '#374151',
+  borderRadius: 8,
+  backgroundColor: '#ffffff',
+  color: '#111827',
+  boxShadow: '0 0 0 1px #374151, inset 0 1px 2px rgba(0, 0, 0, 0.08)',
+  fontSize: 16,
+  lineHeight: 1.5,
+};
+
+export const textareaInlineStyle: CSSProperties = {
+  ...fieldInlineStyle,
+  minHeight: 80,
+  resize: 'vertical',
+};
+
+export const panelInlineStyle: CSSProperties = {
+  padding: 16,
+  borderWidth: 2,
+  borderStyle: 'solid',
+  borderColor: '#6b7280',
+  borderRadius: 8,
+  backgroundColor: '#f3f4f6',
+  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)',
+};
