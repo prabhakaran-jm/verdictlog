@@ -20,23 +20,44 @@
   "menu": {
     "items": [
       {
-        "label": "Create a new post",
-        "description": "verdictlog",
-        "location": "subreddit",
+        "label": "Log Verdict",
+        "description": "Record why this moderation action was taken",
+        "location": "post",
         "forUserType": "moderator",
-        "endpoint": "/internal/menu/post-create"
+        "endpoint": "/internal/menu/log-verdict"
       },
       {
-        "label": "Example form",
-        "description": "Show a simple form",
+        "label": "Log Verdict",
+        "description": "Record why this moderation action was taken",
+        "location": "comment",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/log-verdict"
+      },
+      {
+        "label": "VerdictLog — Search User",
+        "description": "Search a user's moderation case file",
         "location": "subreddit",
         "forUserType": "moderator",
-        "endpoint": "/internal/menu/example-form"
+        "endpoint": "/internal/menu/open-search"
+      },
+      {
+        "label": "VerdictLog — Configure Rules",
+        "description": "Configure subreddit rules for verdicts",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/open-rules"
+      },
+      {
+        "label": "VerdictLog — Retention Settings",
+        "description": "Configure how long verdict data is retained",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/open-settings"
       }
     ]
   },
   "forms": {
-    "exampleForm": "/internal/form/example-submit"
+    "logVerdictForm": "/internal/form/log-verdict-submit"
   },
   "triggers": {
     "onAppInstall": "/internal/triggers/on-app-install"

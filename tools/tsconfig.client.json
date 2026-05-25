@@ -4,13 +4,16 @@
     "outDir": "../dist/types/client",
     "tsBuildInfoFile": "../dist/types/client/tsconfig.tsbuildinfo",
     "customConditions": ["browser"],
-    "rootDir": "../src/client"
+    "rootDir": ".."
   },
-  "include": ["../src/client/**/*"],
+  "include": ["../src/client/**/*", "../src/web/**/*"],
   "exclude": [],
   "references": [
     {
       "path": "./tsconfig.shared.json"
+    },
+    {
+      "path": "./tsconfig.server.json"
     }
   ]
 }
