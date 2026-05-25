@@ -11,7 +11,6 @@ VerdictLog is a [Devvit Web](https://developers.reddit.com/) app that gives Redd
 3. Open the **VerdictLog** custom post → **Search** → enter username → view case file.
 4. **Copy Appeal Summary** for modmail.
 
-Full submission checklist, video script, and Devpost copy: **[DEVPOST.md](./DEVPOST.md)**
 
 ## Core features
 
