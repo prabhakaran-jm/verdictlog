@@ -4,6 +4,39 @@
 
 VerdictLog is a [Devvit Web](https://developers.reddit.com/) app that gives Reddit moderators **appeal-ready decision memory**. Reddit’s mod log records *what* happened; VerdictLog records *why* — in seconds, from the post or comment menu.
 
+**VerdictLog does not replace native remove, removal reasons, or modmail.** It is an optional extra step for teams that want structured, searchable decision history per user.
+
+## How this relates to Reddit’s built-in mod tools
+
+Reddit already gives moderators several places where context can live:
+
+| Native tool | What it captures well |
+|-------------|------------------------|
+| **Removal reason + modmail** | Why *this* removal was sent; modmail threads link back to the content |
+| **Mod notes** | Freeform notes on a user |
+| **Mod log / profile panel** | *What* happened (removes, bans, etc.) across the account |
+
+If your team uses those consistently on every action, much of the “why” already exists — but it is **spread across individual removals, mail threads, and optional notes**, not aggregated in one structured view.
+
+**Where VerdictLog adds value**
+
+- **Per-user case file** — Search `u/username` and see non-expired verdicts in one list (rule, severity, template, reason, acting mod, link, date), instead of reconstructing from mod log entries and scattered notes.
+- **Consistent structure** — Subreddit-configured rules, severity, and decision templates so different mods log decisions the same way.
+- **Prior context at log time** — The Log Verdict form shows how many prior verdicts exist and the most recent one before you act again.
+- **Appeal workflow** — **Copy Appeal Summary** produces a fixed plain-text block for modmail or appeal replies (it does not send modmail for you).
+- **Data boundaries** — No post/comment body storage; configurable retention (default 90 days); manual delete per verdict.
+
+**When VerdictLog is most useful**
+
+- Appeal-heavy communities where mods need quick handoff context
+- Subs with rotating mod teams (“why did we action this user before?”)
+- Teams that want searchable decision memory beyond freeform removal reasons
+
+**When native tools may be enough**
+
+- Small teams with strict habits: every removal gets a reason, modmail, and a standardized mod note
+- You rarely need to compare prior reasons across multiple actions on the same user
+
 ## Demo flow (60 seconds)
 
 1. **Install** VerdictLog on your subreddit (seeds default rules + a welcome custom post).
@@ -48,7 +81,7 @@ Playtest subreddit is configured in `devvit.json` → `"dev": { "subreddit": "ve
 
 ## Scope (MVP)
 
-This app intentionally does **not** include AI summaries, analytics dashboards, auto-log on removal, notifications, or multi-subreddit sync.
+This app intentionally does **not** include AI summaries, analytics dashboards, automatic logging when you remove content, notifications, or multi-subreddit sync. Logging a verdict remains a deliberate mod step after (or alongside) native moderation actions.
 
 ## License
 
